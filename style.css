@@ -562,3 +562,24 @@ footer {
         justify-content: center;
     }
 }
+
+/* Skutečné obrázky na hlavní stránce a v galerii */
+.hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-photo {
+    display: block;
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+}
+
+@media (max-width: 750px) {
+    .hero-photo {
+        height: 230px;
+    }
+}
