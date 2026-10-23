@@ -1,0 +1,564 @@
+
+/* Základní nastavení */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --green: #4b8b36;
+    --dark-green: #28532a;
+    --brown: #795438;
+    --dark: #202b20;
+    --cream: #f4f2e8;
+    --white: #ffffff;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    line-height: 1.6;
+}
+
+header {
+    background: #1d291e;
+    color: white;
+    padding: 18px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.logo {
+    color: #a5df79;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+nav {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: #e8eee3;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 5px;
+}
+
+nav a:hover,
+nav a.active {
+    background: var(--green);
+    color: white;
+}
+
+.hero {
+    min-height: 440px;
+    background: linear-gradient(135deg, #d6f0b4, #83c66c);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 55px 8%;
+    gap: 35px;
+    overflow: hidden;
+}
+
+.hero-content h1 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 1.05;
+    margin: 16px 0;
+    color: #203d22;
+}
+
+.hero-content p {
+    max-width: 480px;
+    margin-bottom: 25px;
+}
+
+.tag {
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: var(--dark-green);
+}
+
+.btn {
+    display: inline-block;
+    background: var(--green);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 13px 22px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn:hover {
+    background: var(--dark-green);
+}
+
+/* Kostičková ilustrace na hlavní stránce */
+.hero-art {
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(#81c9f0 0 65%, #6da64d 65%);
+    border: 8px solid #fff;
+    box-shadow: 8px 8px 0 #53873e;
+    image-rendering: pixelated;
+}
+
+.sun {
+    position: absolute;
+    width: 55px;
+    height: 55px;
+    background: #ffe56b;
+    top: 30px;
+    right: 45px;
+}
+
+.cloud {
+    position: absolute;
+    background: white;
+    height: 18px;
+    width: 75px;
+    top: 65px;
+    left: 45px;
+    box-shadow: 20px -15px white, 40px 0 white;
+}
+
+.cloud-two {
+    top: 120px;
+    left: 180px;
+    transform: scale(.7);
+}
+
+.mountain {
+    position: absolute;
+    bottom: 75px;
+    left: 35px;
+    width: 190px;
+    height: 130px;
+    background: #718d70;
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+.grass-block {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 90px;
+}
+
+.grass-top {
+    height: 25px;
+    background: #4e9c3c;
+}
+
+.dirt {
+    height: 65px;
+    background: repeating-linear-gradient(
+        90deg, #93623d 0 30px, #805333 30px 60px
+    );
+}
+
+.little-tree {
+    position: absolute;
+    bottom: 90px;
+    right: 55px;
+}
+
+.trunk {
+    height: 65px;
+    width: 25px;
+    background: #79502e;
+    margin: auto;
+}
+
+.leaves {
+    width: 95px;
+    height: 95px;
+    background: #347b32;
+    box-shadow: inset 15px 0 #438e38;
+}
+
+/* Obsah a sekce */
+.section {
+    padding: 65px 8%;
+}
+
+.section-heading,
+.page-intro {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-heading h2,
+.page-intro h1 {
+    font-size: clamp(1.8rem, 4vw, 2.7rem);
+    margin: 8px 0;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.feature {
+    background: white;
+    padding: 28px;
+    border-radius: 8px;
+    border-bottom: 5px solid var(--green);
+    box-shadow: 0 5px 18px #263a2010;
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.feature h3 {
+    margin-bottom: 8px;
+}
+
+.quote {
+    background: #29472b;
+    color: white;
+    text-align: center;
+    padding: 45px 20px;
+}
+
+.quote p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.quote a {
+    color: #b9e78d;
+}
+
+/* Podstránky */
+.page-intro {
+    padding: 55px 8% 25px;
+}
+
+.gallery {
+    padding: 15px 8% 55px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.gallery-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 18px #263a2010;
+}
+
+.gallery-card h2,
+.gallery-card p {
+    margin: 12px 18px;
+}
+
+.gallery-card h2 {
+    font-size: 1.2rem;
+}
+
+.gallery-card p {
+    margin-bottom: 20px;
+    color: #596456;
+}
+
+/* Ilustrace v galerii */
+.scene {
+    height: 190px;
+    position: relative;
+    overflow: hidden;
+    background: #8bd0ee;
+}
+
+.pixel-ground {
+    position: absolute;
+    bottom: 0;
+    height: 45px;
+    width: 100%;
+    background: #4e9b3e;
+    border-top: 12px solid #75c653;
+}
+
+.pixel-sun {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    width: 35px;
+    height: 35px;
+    background: #ffe16b;
+}
+
+.pixel-tree {
+    position: absolute;
+    bottom: 45px;
+    left: 45%;
+    width: 25px;
+    height: 70px;
+    background: #80512f;
+}
+
+.pixel-tree::before {
+    content: "";
+    position: absolute;
+    width: 85px;
+    height: 75px;
+    background: #317d35;
+    left: -30px;
+    top: -55px;
+    box-shadow: inset 15px 0 #499340;
+}
+
+.scene-mountain {
+    background: #9ad5f3;
+}
+
+.pixel-mountain {
+    position: absolute;
+    bottom: 35px;
+    left: 20%;
+    width: 190px;
+    height: 150px;
+    background: #7b8e9a;
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+.scene-desert {
+    background: #f5c66e;
+}
+
+.scene-desert .pixel-ground {
+    background: #d4a14e;
+    border-color: #e9c477;
+}
+
+.pixel-pyramid {
+    position: absolute;
+    bottom: 40px;
+    left: 30%;
+    width: 150px;
+    height: 120px;
+    background: #b98a46;
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+.scene-house {
+    background: #9bd3f0;
+}
+
+.pixel-house {
+    position: absolute;
+    bottom: 45px;
+    left: 30%;
+    width: 125px;
+    height: 90px;
+    background: #b77b4a;
+    border: 8px solid #81532f;
+}
+
+.pixel-house::before {
+    content: "";
+    position: absolute;
+    top: -40px;
+    left: -15px;
+    width: 140px;
+    height: 40px;
+    background: #8d4531;
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+.pixel-house::after {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 45px;
+    bottom: 0;
+    left: 40px;
+    background: #5a3925;
+}
+
+.scene-cave {
+    background: #657b86;
+}
+
+.scene-cave .pixel-ground {
+    background: #424b4c;
+    border-color: #68716b;
+}
+
+.pixel-diamond {
+    position: absolute;
+    top: 55px;
+    left: 45%;
+    width: 45px;
+    height: 45px;
+    background: #5be5e5;
+    transform: rotate(45deg);
+    box-shadow: 0 0 25px #5be5e5;
+}
+
+.scene-night {
+    background: #172b50;
+}
+
+.scene-night .pixel-ground {
+    background: #284e2e;
+    border-color: #41743b;
+}
+
+.scene-night .pixel-tree {
+    background: #563b2b;
+}
+
+.scene-night .pixel-tree::before {
+    background: #285c39;
+}
+
+.pixel-moon {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    width: 35px;
+    height: 35px;
+    background: #fff3bd;
+    box-shadow: 35px 20px 0 -14px white,
+                -60px 35px 0 -14px white;
+}
+
+.center {
+    text-align: center;
+    padding: 0 20px 55px;
+}
+
+/* Kontakt */
+.contact-layout {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 20px 8% 65px;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 45px;
+}
+
+.contact-info h2 {
+    margin-bottom: 15px;
+}
+
+.contact-detail {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.contact-detail span {
+    font-size: 1.7rem;
+}
+
+.contact-detail p {
+    color: #596456;
+}
+
+.contact-form {
+    background: white;
+    padding: 28px;
+    border-radius: 8px;
+    box-shadow: 0 5px 18px #263a2010;
+}
+
+.contact-form label {
+    display: block;
+    font-weight: bold;
+    margin: 12px 0 5px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd3c5;
+    border-radius: 5px;
+    font: inherit;
+    background: #fbfcf9;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form .btn {
+    margin-top: 18px;
+}
+
+.form-note {
+    margin-top: 12px;
+    font-size: 0.8rem;
+    color: #687364;
+}
+
+/* Patička */
+footer {
+    text-align: center;
+    background: #1d291e;
+    color: #d7e0d1;
+    padding: 25px 15px;
+    font-size: 0.85rem;
+}
+
+/* Zobrazení na mobilech */
+@media (max-width: 750px) {
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 40px 7%;
+    }
+
+    .hero-art {
+        height: 230px;
+    }
+
+    .features,
+    .gallery,
+    .contact-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding: 45px 7%;
+    }
+
+    .gallery {
+        padding: 10px 7% 40px;
+    }
+
+    .contact-layout {
+        padding: 10px 7% 45px;
+        gap: 25px;
+    }
+
+    header {
+        justify-content: center;
+    }
+
+    nav {
+        justify-content: center;
+    }
+}
